@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import { classNames } from '@/utils/classNames';
 import { lessonsTypes } from './constants';
 
@@ -34,6 +36,19 @@ const LessonsTypesList = () => {
 							>
 								{lessonType.content}
 							</p>
+
+							<Link
+								href={lessonType.route}
+								className={classNames(
+									'mt-2 px-4 py-1 w-fit',
+									'self-start sm:self-end',
+									'font-semibold text-[16px] text-white',
+									'rounded-lg border border-gray-400',
+									'hover:text-red-400 hover:border-red-400 duration-500'
+								)}
+							>
+								DETAILS..
+							</Link>
 						</div>
 					</div>
 				))}
