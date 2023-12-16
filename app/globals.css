@@ -2,14 +2,11 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+@import './components/carousel/carousel.css';
+
 html,
 body {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-}
-
-.swiper-slide {
-	overflow: hidden;
-	border-radius: 8px;
 }

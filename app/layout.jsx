@@ -1,7 +1,7 @@
 import './globals.css';
 
 export const metadata = {
-	title: 'Teach Page',
+	title: 'Teaching Page',
 	description: '',
 };
 

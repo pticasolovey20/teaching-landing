@@ -4,24 +4,17 @@ import { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useMediaQuery } from '@/utils/useMediaQuery';
 import { EffectCoverflow, Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { slides } from './constants';
 
-import CardItem from '../card-item/CardItem';
-import CustomNavigation from '../navigation/CustomNavigation';
-import CustomPagination from '../pagination/CustomPagination';
-import Loader from '../loader/Loader';
+import CardItem from './components/CardItem';
+import CustomNavigation from './components/CustomNavigation';
+import CustomPagination from './components/CustomPagination';
+import Loader from './components/Loader';
 
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css';
-
-const slides = [
-	{ id: 1, label: 'SLIDE-1' },
-	{ id: 2, label: 'SLIDE-2' },
-	{ id: 3, label: 'SLIDE-3' },
-	{ id: 4, label: 'SLIDE-4' },
-	{ id: 5, label: 'SLIDE-5' },
-];
 
 const Carousel = () => {
 	const [mounted, setMounted] = useState(false);
