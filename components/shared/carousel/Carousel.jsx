@@ -1,15 +1,18 @@
 'use client';
 
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useMediaQuery } from '@/utils/useMediaQuery';
-import { EffectCoverflow, Navigation } from 'swiper/modules';
+import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
 
 import CardItem from '../card-item/CardItem';
 import CustomNavigation from '../navigation/CustomNavigation';
+import CustomPagination from '../pagination/CustomPagination';
+import Loader from '../loader/Loader';
 
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 import 'swiper/css';
 
 const slides = [
@@ -21,14 +24,21 @@ const slides = [
 ];
 
 const Carousel = () => {
+	const [mounted, setMounted] = useState(false);
+
 	const swiperRef = useRef();
 
-	const { matches: desctop } = useMediaQuery('min-width', 1280);
 	const { matches: tablet } = useMediaQuery('min-width', 768);
 	const { matches: mobile } = useMediaQuery('max-width', 640);
 
+	useEffect(() => {
+		setMounted(true);
+	}, []);
+
+	if (!mounted) return <Loader styles="h-[300px]" />;
+
 	return (
-		<div className="relative mt-12">
+		<div className="relative">
 			<Swiper
 				effect="coverflow"
 				coverflowEffect={{ rotate: 0, stretch: 0, depth: 100, modifier: 2.5 }}
@@ -36,10 +46,12 @@ const Carousel = () => {
 				grabCursor={true}
 				centeredSlides={true}
 				slidesPerView={mobile ? 1 : 2}
-				spaceBetween={desctop ? 120 : tablet ? 90 : 50}
-				className="w-[90%] lg:w-[80%]"
-				modules={[EffectCoverflow, Navigation]}
+				spaceBetween={tablet ? 40 : 20}
+				className="w-[90%] lg:w-[80%] xl:w-[70%] xxl:w-[60%]"
+				slideClass="swiper-slide"
+				modules={[EffectCoverflow, Pagination, Navigation]}
 				onBeforeInit={(swiper) => (swiperRef.current = swiper)}
+				pagination={{ el: '.swiper-pagination', clickable: true }}
 				navigation={{
 					prevEl: '.swiper-button-prev',
 					nextEl: '.swiper-button-next',
@@ -53,6 +65,7 @@ const Carousel = () => {
 			</Swiper>
 
 			<CustomNavigation swiperRef={swiperRef} />
+			<CustomPagination />
 		</div>
 	);
 };

@@ -13,10 +13,10 @@ const CustomNavigation = ({ swiperRef }) => {
 				className={classNames(
 					'.swiper-button-prev',
 					'hidden lg:block h-[40px] w-[40px]',
-					'absolute top-[45%] left-[5%]'
+					'absolute top-[45%] left-[10%]'
 				)}
 			>
-				<Image src={PrevArrow} alt="prev-arrow" className="w-full h-full" />
+				<Image priority src={PrevArrow} alt="prev-arrow" className="w-full h-full" />
 			</button>
 
 			<button
@@ -24,10 +24,10 @@ const CustomNavigation = ({ swiperRef }) => {
 				className={classNames(
 					'.swiper-button-prev',
 					'hidden lg:block h-[40px] w-[40px]',
-					'absolute top-[45%] right-[5%]'
+					'absolute top-[45%] right-[10%]'
 				)}
 			>
-				<Image src={NextArrow} alt="next-arrow" className="w-full h-full" />
+				<Image priority src={NextArrow} alt="next-arrow" className="w-full h-full" />
 			</button>
 		</>
 	);
