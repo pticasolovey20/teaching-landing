@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useMediaQuery } from '@/utils/useMediaQuery';
-import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
+import { EffectCoverflow, Autoplay, Pagination, Navigation } from 'swiper/modules';
 
 import CardItem from '../card-item/CardItem';
 import CustomNavigation from '../navigation/CustomNavigation';
@@ -42,6 +42,10 @@ const Carousel = () => {
 			<Swiper
 				effect="coverflow"
 				coverflowEffect={{ rotate: 0, stretch: 0, depth: 100, modifier: 2.5 }}
+				autoplay={{
+					delay: 4000,
+					disableOnInteraction: false,
+				}}
 				loop={true}
 				grabCursor={true}
 				centeredSlides={true}
@@ -49,7 +53,7 @@ const Carousel = () => {
 				spaceBetween={tablet ? 40 : 20}
 				className="w-[90%] lg:w-[80%] xl:w-[70%] xxl:w-[60%]"
 				slideClass="swiper-slide"
-				modules={[EffectCoverflow, Pagination, Navigation]}
+				modules={[EffectCoverflow, Autoplay, Pagination, Navigation]}
 				onBeforeInit={(swiper) => (swiperRef.current = swiper)}
 				pagination={{ el: '.swiper-pagination', clickable: true }}
 				navigation={{
