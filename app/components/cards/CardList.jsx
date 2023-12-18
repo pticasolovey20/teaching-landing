@@ -10,19 +10,17 @@ const cards = [
 
 const CardList = () => {
 	return (
-		<section className="flex justify-center p-8">
-			<div
-				className={classNames(
-					'flex justify-center gap-12',
-					'flex-col sm:flex-row flex-wrap',
-					'w-full lg:w-[90%]'
-				)}
-			>
-				{cards.map((card) => (
-					<CardItem key={card.id} {...card} />
-				))}
-			</div>
-		</section>
+		<div
+			className={classNames(
+				'flex justify-center gap-12',
+				'flex-col sm:flex-row flex-wrap',
+				'w-full lg:w-[90%]'
+			)}
+		>
+			{cards.map((card) => (
+				<CardItem key={card.id} {...card} />
+			))}
+		</div>
 	);
 };
 
