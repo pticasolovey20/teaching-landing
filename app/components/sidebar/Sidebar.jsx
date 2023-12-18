@@ -49,7 +49,7 @@ const Sidebar = () => {
 						initial={{ width: 0 }}
 						animate={{ width: '100%' }}
 						exit={{ width: 0, transition: { delay: 0.5 } }}
-						className="w-full bg-[#292929] shadow-md shadow-black z-10"
+						className="flex h-full w-full bg-[#292929] shadow-md shadow-black z-10"
 					>
 						<motion.button
 							initial={{ opacity: 0 }}
@@ -65,7 +65,7 @@ const Sidebar = () => {
 							<Image src={close} alt="close" className="h-full w-full" />
 						</motion.button>
 
-						<nav className="w-full mt-20 flex flex-col gap-8 p-8">
+						<nav className="mt-20 w-full flex-1 flex flex-col gap-8 p-8">
 							{links.map(({ id, label, href }) => (
 								<motion.div
 									key={id}
