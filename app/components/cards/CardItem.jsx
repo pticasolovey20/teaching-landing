@@ -16,25 +16,33 @@ const CardItem = ({ label, description }) => {
 	return (
 		<div
 			className={classNames(
-				'flex flex-col justify-center gap-2',
-				'self-center p-4 md:p-8 px-8 rounded-3xl',
-				'w-full max-h-[350px] max-w-[350px] aspect-square',
-				'select-none cursor-pointer overflow-hidden',
-				'shadow-lg shadow-black bg-[#222222]'
+				'flex flex-col',
+				'gap-2 xs:gap-4 p-4 px-6',
+				'basis-[300px] shrink-1 aspect-square',
+				'rounded-xl select-none cursor-pointer',
+				'shadow-md shadow-black bg-[#222222]'
 			)}
 		>
 			<h1
 				className={classNames(
-					'text-[42px] leading-none xs:text-6xl',
+					'text-4xl leading-none xs:text-5xl',
 					'font-bold text-[#A3B1E6]'
 				)}
 			>
 				{label}
 			</h1>
 
-			<p className="mt-2 font-semibold text-gray-400">If the format works for you:</p>
+			<p
+				className={classNames(
+					'my-4 xs:my-0',
+					'text-sm xs:text-base',
+					'font-semibold text-gray-400'
+				)}
+			>
+				If the format works for you:
+			</p>
 
-			<ul className={classNames('mt-2 flex flex-col gap-2', 'font-semibold text-[#FFF2D8]')}>
+			<ul className={classNames('mt-2 flex flex-col gap-1', 'font-semibold text-[#FFF2D8]')}>
 				{description.map((element, index) => (
 					<li key={index} className="h-8 flex items-center gap-3">
 						<Image

@@ -10,13 +10,7 @@ const cards = [
 
 const CardList = () => {
 	return (
-		<div
-			className={classNames(
-				'flex justify-center gap-12',
-				'flex-col sm:flex-row flex-wrap',
-				'w-full lg:w-[90%]'
-			)}
-		>
+		<div className="flex flex-wrap">
 			{cards.map((card) => (
 				<CardItem key={card.id} {...card} />
 			))}

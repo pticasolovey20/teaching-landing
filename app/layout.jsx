@@ -1,3 +1,4 @@
+import Sidebar from './components/sidebar/Sidebar';
 import './globals.css';
 
 export const metadata = {
@@ -8,7 +9,10 @@ export const metadata = {
 const RootLayout = ({ children }) => {
 	return (
 		<html lang="en">
-			<body suppressHydrationWarning={true}>{children}</body>
+			<body suppressHydrationWarning={true}>
+				<Sidebar />
+				{children}
+			</body>
 		</html>
 	);
 };

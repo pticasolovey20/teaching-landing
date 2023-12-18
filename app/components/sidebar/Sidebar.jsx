@@ -11,11 +11,12 @@ import close from '@/assets/icons/close.svg';
 import menu from '@/assets/icons/menu.svg';
 
 const links = [
-	{ id: 1, label: 'About', href: '/' },
-	{ id: 2, label: 'Group Lessons', href: '/' },
-	{ id: 3, label: 'Pairs Lessons', href: '/' },
-	{ id: 4, label: 'Individual Lessons', href: '/' },
-	{ id: 5, label: 'Contact', href: '/' },
+	{ id: 1, label: 'Home', href: '/' },
+	{ id: 2, label: 'About', href: '/#about' },
+	{ id: 3, label: 'Group Lessons', href: '/lessons' },
+	{ id: 4, label: 'Pairs Lessons', href: '/lessons' },
+	{ id: 5, label: 'Individual Lessons', href: '/lessons' },
+	{ id: 6, label: 'Contact', href: '/#contact' },
 ];
 
 const slide = {
@@ -41,14 +42,14 @@ const Sidebar = () => {
 	const handleClose = () => setOpen(false);
 
 	return (
-		<section className="fixed flex min-h-[100svh] w-full sm:w-[350px]">
+		<section className="fixed flex h-full w-full sm:w-[350px]">
 			<AnimatePresence>
 				{open && (
 					<motion.aside
 						initial={{ width: 0 }}
 						animate={{ width: '100%' }}
 						exit={{ width: 0, transition: { delay: 0.5 } }}
-						className="w-full z-10 min-h-[100svh] bg-[#292929]"
+						className="w-full bg-[#292929] shadow-md shadow-black z-10"
 					>
 						<motion.button
 							initial={{ opacity: 0 }}
@@ -63,12 +64,14 @@ const Sidebar = () => {
 						>
 							<Image src={close} alt="close" className="h-full w-full" />
 						</motion.button>
+
 						<nav className="w-full mt-20 flex flex-col gap-8 p-8">
 							{links.map(({ id, label, href }) => (
 								<motion.div
 									key={id}
 									custom={id}
 									variants={slide}
+									onClick={handleClose}
 									initial="initial"
 									animate="enter"
 									exit="exit"
@@ -87,7 +90,7 @@ const Sidebar = () => {
 				onClick={handleOpen}
 				className={classNames(
 					'absolute top-4 left-4 h-10 w-10 p-1',
-					'rounded-lg border-2 border-[#292929] bg-[#FAF0E6]'
+					'rounded-full border-2 border-[#292929] bg-[#FAF0E6]'
 				)}
 			>
 				<Image src={menu} alt="menu" className="h-full w-full" />
