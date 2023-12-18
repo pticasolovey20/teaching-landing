@@ -42,7 +42,7 @@ const Sidebar = () => {
 	const handleClose = () => setOpen(false);
 
 	return (
-		<section className="fixed flex h-full w-full sm:w-[350px]">
+		<section className="fixed top-0 left-0 flex h-full w-full sm:w-[350px]">
 			<AnimatePresence>
 				{open && (
 					<motion.aside

@@ -11,7 +11,7 @@ const RootLayout = ({ children }) => {
 		<html lang="en">
 			<body suppressHydrationWarning={true}>
 				<Sidebar />
-				{children}
+				<main className="min-h-screen bg-[#FAF0E6]">{children}</main>
 			</body>
 		</html>
 	);
