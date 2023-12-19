@@ -3,7 +3,7 @@ import Section from './components/section/Section';
 const Home = () => {
 	return (
 		<>
-			<Section id="about" styles="pt-20 pb-10">
+			<Section id="about">
 				<h2 className="font-bold text-4xl text-center">ABOUT</h2>
 			</Section>
 

@@ -2,7 +2,7 @@ import { classNames } from '@/utils/classNames';
 
 const Section = ({ children, id, styles }) => {
 	return (
-		<section id={id} className={classNames('flex justify-center px-4 py-6', styles)}>
+		<section id={id} className={classNames('flex justify-center px-4 py-10', styles)}>
 			<div
 				className={classNames(
 					'h-[700px] w-full md:w-[80%] xl:w-[60%]',
