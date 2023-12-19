@@ -24,6 +24,7 @@ const links = [
 const Navbar = () => {
 	const [openSidebar, setOpenSidebar] = useState(false);
 	const [hiddenHeader, setHiddenHeader] = useState(false);
+
 	const navigationRef = useRef();
 	const { scrollY } = useScroll();
 
@@ -100,6 +101,7 @@ const Navbar = () => {
 										key={id}
 										custom={id}
 										variants={leftToRightSlide}
+										onClick={() => setOpenSidebar(false)}
 										initial="initial"
 										animate="enter"
 										exit="exit"
