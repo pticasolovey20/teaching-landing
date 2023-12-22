@@ -1,4 +1,6 @@
 import Navbar from './components/navbar/Navbar';
+import Footer from './components/footer/Footer';
+
 import './globals.css';
 
 export const metadata = { title: 'Teaching Page' };
@@ -12,6 +14,7 @@ const RootLayout = ({ children }) => {
 			>
 				<Navbar />
 				{children}
+				<Footer />
 			</body>
 		</html>
 	);

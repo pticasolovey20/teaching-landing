@@ -1,19 +1,7 @@
 import { classNames } from '@/utils/classNames';
-
-import Image from 'next/image';
-
-import person from '@/assets/icons/person.svg';
-import clock from '@/assets/icons/clock.svg';
-import dollar from '@/assets/icons/dollar.svg';
 import Link from 'next/link';
 
 const colors = ['text-[#FFAE62]', 'text-[#A3B1E6]', 'text-[#7AE1BF]'];
-
-const icons = [
-	{ src: person, alt: 'person' },
-	{ src: clock, alt: 'clock' },
-	{ src: dollar, alt: 'dollar' },
-];
 
 const CardItem = ({ id: cardId, href, label, description }) => {
 	return (
@@ -21,8 +9,8 @@ const CardItem = ({ id: cardId, href, label, description }) => {
 			href={href}
 			className={classNames(
 				'flex flex-col justify-evenly gap-2',
-				'basis-full md:basis-[300px]',
-				'max-w-[400px] h-[300px] md:h-full',
+				'basis-full md:basis-[300px] max-w-[400px]',
+				'h-[300px] md:h-full md:aspect-square',
 				'p-6 rounded-xl select-none cursor-pointer',
 				'shadow-sm shadow-black bg-[#292929]'
 			)}
@@ -30,7 +18,7 @@ const CardItem = ({ id: cardId, href, label, description }) => {
 			<div className="flex flex-col gap-4">
 				<h1
 					className={classNames(
-						'text-4xl sm:text-5xl leading-none font-bold',
+						'text-4xl xs:text-5xl leading-none font-bold',
 						colors[cardId - 1]
 					)}
 				>
@@ -43,15 +31,9 @@ const CardItem = ({ id: cardId, href, label, description }) => {
 			</div>
 
 			<ul className="mt-2 flex flex-col gap-1">
-				{description.map((element, index) => (
-					<li key={index} className="h-8 flex items-center gap-3">
-						<Image
-							priority
-							src={icons[index].src}
-							alt={icons[index].alt}
-							className="h-full w-auto"
-						/>
-
+				{description.map((element) => (
+					<li key={element} className="h-8 flex items-center gap-3">
+						<div className="w-6 h-6 rounded-full bg-gray-400 shadow-md shadow-black" />
 						<p className="font-semibold text-[#FFF2D8]">{element}</p>
 					</li>
 				))}
