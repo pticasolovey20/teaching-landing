@@ -3,11 +3,11 @@ import CardList from './components/cards/CardList';
 
 const Home = () => {
 	return (
-		<>
+		<main className="flex-1">
 			<Section>
 				<CardList />
 			</Section>
-		</>
+		</main>
 	);
 };
 

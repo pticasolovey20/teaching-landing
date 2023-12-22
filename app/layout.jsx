@@ -8,10 +8,10 @@ const RootLayout = ({ children }) => {
 		<html lang="en">
 			<body
 				suppressHydrationWarning={true}
-				className="min-h-screen bg-gradient-to-b from-[#16161C] to-[#3e3e46]"
+				className="min-h-screen flex flex-col bg-gradient-to-b from-[#16161C] to-[#3e3e46]"
 			>
 				<Navbar />
-				<main>{children}</main>
+				{children}
 			</body>
 		</html>
 	);

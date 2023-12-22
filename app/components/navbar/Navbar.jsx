@@ -14,11 +14,11 @@ import close from '@/assets/icons/close.svg';
 
 const links = [
 	{ id: 1, label: 'Home', href: '/' },
-	{ id: 2, label: 'About', href: '/#about' },
+	{ id: 2, label: 'About', href: '/' },
 	{ id: 3, label: 'Group Lessons', href: '/lessons' },
 	{ id: 4, label: 'Pairs Lessons', href: '/lessons' },
 	{ id: 5, label: 'Individual Lessons', href: '/lessons' },
-	{ id: 6, label: 'Contact', href: '/#contact' },
+	{ id: 6, label: 'Contact', href: '/' },
 ];
 
 const Navbar = () => {
@@ -46,90 +46,95 @@ const Navbar = () => {
 	});
 
 	return (
-		<nav className="sticky top-4 inset-0 h-14">
-			<motion.div
-				transition={{ duration: 0.35, ease: 'easeInOut' }}
-				variants={{ visible: { y: 0 }, hidden: { y: '-150%' } }}
-				animate={openSidebar ? 'hidden' : hiddenHeader ? 'hidden' : 'visible'}
-				className="h-full px-6 flex justify-center items-center"
-			>
-				<div
-					className={classNames(
-						'reltive h-full w-full max-w-[500px] rounded-[30px]',
-						'rounded-[30px] bg-[rgba(255,255,255,0.1)] backdrop-blur-[5px] shadow-sm shadow-black'
-					)}
+		<header className="sticky top-4 inset-0 h-14 flex">
+			<nav className="h-full w-full flex">
+				<motion.div
+					transition={{ duration: 0.35, ease: 'easeInOut' }}
+					variants={{ visible: { y: 0 }, hidden: { y: '-150%' } }}
+					animate={openSidebar ? 'hidden' : hiddenHeader ? 'hidden' : 'visible'}
+					className="h-full w-full px-6 flex justify-center items-center"
 				>
-					{!openSidebar && (
-						<button
-							className="relative top-3 left-4 w-8 h-8"
-							onClick={() => setOpenSidebar(true)}
-						>
-							<Image src={menu} alt="menu" className="w-full h-full" />
-						</button>
-					)}
-				</div>
-			</motion.div>
-
-			<AnimatePresence>
-				{openSidebar && (
-					<motion.div
-						key="mobile-navigation"
-						initial="closed"
-						animate="open"
-						exit="closed"
+					<div
 						className={classNames(
-							'fixed inset-0',
-							'min-h-full w-full sm:w-[350px]',
-							'flex flex-col space-y-10 p-6',
-							'bg-[#292929] shadow-md shadow-black'
+							'reltive h-full w-full max-w-[500px] rounded-[30px]',
+							'rounded-[30px] bg-[rgba(255,255,255,0.1)] backdrop-blur-[5px] shadow-sm shadow-black'
 						)}
-						variants={{
-							open: {
-								x: '0%',
-								transition: { when: 'beforeChildren', duration: 0.3 },
-							},
-
-							closed: {
-								x: '-100%',
-								transition: { when: 'afterChildren', duration: 0.3 },
-							},
-						}}
 					>
-						<button onClick={() => setOpenSidebar(false)} className="h-10 w-10 -ml-2">
-							<Image src={close} alt="close" className="w-full h-full" />
-						</button>
+						{!openSidebar && (
+							<button
+								className="relative top-3 left-4 w-8 h-8"
+								onClick={() => setOpenSidebar(true)}
+							>
+								<Image src={menu} alt="menu" className="w-full h-full" />
+							</button>
+						)}
+					</div>
+				</motion.div>
 
-						<motion.div>
-							<ul className="space-y-6" ref={navigationRef}>
-								{links.map(({ id, label, href }) => (
-									<motion.li
-										key={id}
-										custom={id}
-										variants={leftToRightSlide}
-										onClick={() => setOpenSidebar(false)}
-										initial="initial"
-										animate="enter"
-										exit="exit"
-										className="flex w-full"
-									>
-										<Link
-											href={href}
-											className="h-full w-full text-4xl font-bold text-[#FAF0E6]"
+				<AnimatePresence>
+					{openSidebar && (
+						<motion.div
+							key="mobile-navigation"
+							initial="closed"
+							animate="open"
+							exit="closed"
+							className={classNames(
+								'fixed inset-0',
+								'w-full sm:w-[350px]',
+								'flex-1 flex flex-col space-y-10 p-6',
+								'bg-[#292929] shadow-md shadow-black'
+							)}
+							variants={{
+								open: {
+									x: '0%',
+									transition: { when: 'beforeChildren', duration: 0.3 },
+								},
+
+								closed: {
+									x: '-100%',
+									transition: { when: 'afterChildren', duration: 0.3 },
+								},
+							}}
+						>
+							<button
+								onClick={() => setOpenSidebar(false)}
+								className="h-10 w-10 -ml-2"
+							>
+								<Image src={close} alt="close" className="w-full h-full" />
+							</button>
+
+							<motion.div>
+								<ul className="space-y-6" ref={navigationRef}>
+									{links.map(({ id, label, href }) => (
+										<motion.li
+											key={id}
+											custom={id}
+											variants={leftToRightSlide}
+											onClick={() => setOpenSidebar(false)}
+											initial="initial"
+											animate="enter"
+											exit="exit"
+											className="flex w-full"
 										>
-											{label}
-										</Link>
-									</motion.li>
-								))}
-							</ul>
+											<Link
+												href={href}
+												className="h-full w-full text-4xl font-bold text-[#FAF0E6]"
+											>
+												{label}
+											</Link>
+										</motion.li>
+									))}
+								</ul>
+							</motion.div>
+
+							<motion.div className="w-full h-px bg-gray-400" />
+
+							<Socials />
 						</motion.div>
-
-						<motion.div className="w-full h-px bg-gray-400" />
-
-						<Socials />
-					</motion.div>
-				)}
-			</AnimatePresence>
-		</nav>
+					)}
+				</AnimatePresence>
+			</nav>
+		</header>
 	);
 };
 

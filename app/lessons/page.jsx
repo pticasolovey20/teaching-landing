@@ -1,9 +1,11 @@
-const Lessons = () => {
+const LessonsPage = () => {
 	return (
-		<section className="min-h-screen flex items-center justify-center">
-			<h1 className="font-bold text-4xl">SOON</h1>
-		</section>
+		<>
+			<section className="flex-1 flex items-center justify-center">
+				<h1 className="font-bold text-4xl text-[#FAF0E6]">SOON</h1>
+			</section>
+		</>
 	);
 };
 
-export default Lessons;
+export default LessonsPage;
