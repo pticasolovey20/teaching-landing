@@ -18,7 +18,7 @@ const Socials = () => {
 								'w-12 h-12 rounded-full',
 								'flex items-center justify-center',
 								'text-xl text-[#FAF0E6] font-semibold',
-								'shadow-md shadow-black bg-gray-400'
+								'shadow-md shadow-black bg-gray-400 cursor-pointer'
 							)}
 						/>
 					</li>
