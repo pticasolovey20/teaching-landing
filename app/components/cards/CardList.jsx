@@ -1,5 +1,3 @@
-import { classNames } from '@/utils/classNames';
-
 import CardItem from './CardItem';
 
 const cards = [
@@ -10,7 +8,7 @@ const cards = [
 
 const CardList = () => {
 	return (
-		<div className="flex flex-wrap">
+		<div className="flex justify-center gap-8 flex-wrap">
 			{cards.map((card) => (
 				<CardItem key={card.id} {...card} />
 			))}

@@ -6,43 +6,39 @@ import person from '@/assets/icons/person.svg';
 import clock from '@/assets/icons/clock.svg';
 import dollar from '@/assets/icons/dollar.svg';
 
+const colors = ['text-[#FFAE62]', 'text-[#A3B1E6]', 'text-[#7AE1BF]'];
+
 const icons = [
 	{ src: person, alt: 'person' },
 	{ src: clock, alt: 'clock' },
 	{ src: dollar, alt: 'dollar' },
 ];
 
-const CardItem = ({ label, description }) => {
+const CardItem = ({ id: cardId, label, description }) => {
 	return (
 		<div
 			className={classNames(
-				'flex flex-col',
-				'gap-2 xs:gap-4 p-4 px-6',
-				'basis-[300px] shrink-1 aspect-square',
-				'rounded-xl select-none cursor-pointer',
-				'shadow-md shadow-black bg-[#222222]'
+				'flex flex-col justify-between gap-2',
+				'basis-full md:basis-[300px]',
+				'max-w-[400px] h-[270px] md:h-full',
+				'p-6 rounded-xl select-none cursor-pointer',
+				'shadow-sm shadow-black bg-[#292929]'
 			)}
 		>
 			<h1
 				className={classNames(
-					'text-4xl leading-none xs:text-5xl',
-					'font-bold text-[#A3B1E6]'
+					'text-4xl sm:text-5xl leading-none font-bold',
+					colors[cardId - 1]
 				)}
 			>
 				{label}
 			</h1>
 
-			<p
-				className={classNames(
-					'my-4 xs:my-0',
-					'text-sm xs:text-base',
-					'font-semibold text-gray-400'
-				)}
-			>
+			<p className="text-sm xs:text-base font-semibold text-gray-400">
 				If the format works for you:
 			</p>
 
-			<ul className={classNames('mt-2 flex flex-col gap-1', 'font-semibold text-[#FFF2D8]')}>
+			<ul className="mt-2 flex flex-col gap-1">
 				{description.map((element, index) => (
 					<li key={index} className="h-8 flex items-center gap-3">
 						<Image
@@ -52,7 +48,7 @@ const CardItem = ({ label, description }) => {
 							className="h-full w-auto"
 						/>
 
-						<p>{element}</p>
+						<p className="font-semibold text-[#FFF2D8]">{element}</p>
 					</li>
 				))}
 			</ul>

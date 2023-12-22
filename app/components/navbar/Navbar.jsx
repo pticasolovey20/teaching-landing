@@ -51,12 +51,12 @@ const Navbar = () => {
 				transition={{ duration: 0.35, ease: 'easeInOut' }}
 				variants={{ visible: { y: 0 }, hidden: { y: '-150%' } }}
 				animate={openSidebar ? 'hidden' : hiddenHeader ? 'hidden' : 'visible'}
-				className="h-full px-4 flex justify-center items-center"
+				className="h-full px-6 flex justify-center items-center"
 			>
 				<div
 					className={classNames(
-						'reltive h-full w-full max-w-[500px]',
-						'rounded-[30px] bg-[#292929] bg-opacity-90'
+						'reltive h-full w-full max-w-[500px] rounded-[30px]',
+						'rounded-[30px] bg-[rgba(255,255,255,0.1)] backdrop-blur-[5px] shadow-sm shadow-black'
 					)}
 				>
 					{!openSidebar && (
@@ -77,6 +77,12 @@ const Navbar = () => {
 						initial="closed"
 						animate="open"
 						exit="closed"
+						className={classNames(
+							'fixed inset-0',
+							'min-h-full w-full sm:w-[350px]',
+							'flex flex-col space-y-10 p-6',
+							'bg-[#292929] shadow-md shadow-black'
+						)}
 						variants={{
 							open: {
 								x: '0%',
@@ -88,9 +94,8 @@ const Navbar = () => {
 								transition: { when: 'afterChildren', duration: 0.3 },
 							},
 						}}
-						className="fixed inset-0 space-y-10 w-full sm:w-[350px] flex flex-col p-6 bg-[#292929]"
 					>
-						<button onClick={() => setOpenSidebar(false)} className="h-10 w-10">
+						<button onClick={() => setOpenSidebar(false)} className="h-10 w-10 -ml-2">
 							<Image src={close} alt="close" className="w-full h-full" />
 						</button>
 

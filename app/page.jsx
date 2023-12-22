@@ -1,14 +1,11 @@
 import Section from './components/section/Section';
+import CardList from './components/cards/CardList';
 
 const Home = () => {
 	return (
 		<>
-			<Section id="about">
-				<h2 className="font-bold text-4xl text-center">ABOUT</h2>
-			</Section>
-
-			<Section id="contact">
-				<h2 className="font-bold text-4xl text-center">CONTACT</h2>
+			<Section>
+				<CardList />
 			</Section>
 		</>
 	);
