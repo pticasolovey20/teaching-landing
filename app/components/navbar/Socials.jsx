@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { classNames } from '@/utils/classNames';
+import { classNames } from '@/app/utils/classNames';
 
 const socials = [
 	{ id: 1, href: '/' },

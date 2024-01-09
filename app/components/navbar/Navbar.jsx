@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion';
 import { asideToggle } from '@/app/animation';
-import { classNames } from '@/utils/classNames';
+import { classNames } from '@/app/utils/classNames';
 
 import Header from './Header';
 import CloseIcon from '../icons/CloseIcon';
