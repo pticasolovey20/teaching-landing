@@ -1,4 +1,4 @@
-import { classNames } from '@/utils/classNames';
+import { classNames } from '@/app/utils/classNames';
 import Link from 'next/link';
 
 const colors = ['text-[#FFAE62]', 'text-[#A3B1E6]', 'text-[#7AE1BF]'];

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { classNames } from '@/utils/classNames';
+import { classNames } from '@/app/utils/classNames';
 
 import MenuIcon from '../icons/MenuIcon';
 
